@@ -29,7 +29,9 @@
                     <div class="profile bg-gradient-primary-to-secondary">
                         <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                         <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                        <img class="profile-img" src="{% static 'img/profile/mp2.png' %}" alt="..." />
+                        {% for user in user_info %}
+                        <img class="profile-img" src="{{ user.image.url }}" alt="..." />
+                        {% endfor %}
                         <div class="dots-1">
                             <!-- SVG Dots-->
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -323,12 +325,13 @@
             <div class="col-xxl-8">
                 <div class="text-center my-5">
                     <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
-                    <p class="lead fw-light mb-4">I’m Munjur Alom and I belong to Bangladesh.</p>
-                    <p class="text-muted">I’ve completed my Bachelors of Computer Science & Engineering
-                        from Khwaja Yunus Ali University. I am energetic & a great communicator. I am trustworthy and
-                        punctual, and I can always be depended on to finish what I start. I also consider myself
-                        hardworking,
-                        reliable, dependable, helpful, outgoing, organized, honest and cooperative.</p>
+                    <p class="lead fw-light mb-4">I’m Munjur Alom <br>
+                        B.Sc Engineer, Backend Developer / Python Django</p>
+                    <p class="text-muted">
+                        I am energetic and a great communicator. My previous experience has helped me build confidence
+                        and develop advanced skills for this position. I am trustworthy and punctual, and I can always
+                        be depended on to finish what I start. I also consider myself hardworking, reliable, dependable,
+                        helpful, outgoing, organized, honest, and cooperative.</p>
                     <div class="d-flex justify-content-center fs-2 gap-4">
                         <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
                         <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>

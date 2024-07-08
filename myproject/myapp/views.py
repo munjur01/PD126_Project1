@@ -1,6 +1,6 @@
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import UserInfo, Experience
+from .forms import ContactForm
 
 def IndexView(request):
     user_info_data = UserInfo.objects.all()
@@ -20,4 +20,16 @@ def ProjectView(request):
     return render(request, 'projects.html')
 
 def ContactView(request):
-    return render(request, 'contact.html')
+    if request.method == 'GET':
+        form = ContactForm()
+        return render(request, 'contact.html', {'form': form})
+    
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ContactForm()
+        
+    return render(request, 'contact.html', {'form': form})

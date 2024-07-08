@@ -22,3 +22,15 @@ class Experience(models.Model):
 
     def __str__(self):
         return self.job_title
+
+class ContactInfo(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    message = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Contact Info"
+
+    def __str__(self):
+        return self.name
